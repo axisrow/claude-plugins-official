@@ -33,7 +33,8 @@ import { join, basename, sep } from 'path'
 const STATIC = process.env.IMESSAGE_ACCESS_MODE === 'static'
 const APPEND_SIGNATURE = process.env.IMESSAGE_APPEND_SIGNATURE !== 'false'
 const SIGNATURE = '\nSent by Claude'
-const CHAT_DB = join(homedir(), 'Library', 'Messages', 'chat.db')
+const CHAT_DB =
+  process.env.IMESSAGE_DB_PATH ?? join(homedir(), 'Library', 'Messages', 'chat.db')
 
 const STATE_DIR = process.env.IMESSAGE_STATE_DIR ?? join(homedir(), '.claude', 'channels', 'imessage')
 const ACCESS_FILE = join(STATE_DIR, 'access.json')
