@@ -1,0 +1,31 @@
+GitHub plugin for Claude Code
+=============================
+
+This product includes software developed by OpenAI and contributors to the
+`openai/plugins` repository (https://github.com/openai/plugins).
+
+Portions of this plugin — specifically the skills under `skills/` and the
+helper scripts under `skills/*/scripts/` — were adapted from OpenAI's
+`github@openai-curated` plugin for Codex, which is licensed under the
+Apache License, Version 2.0.
+
+Modifications from the original:
+
+- Removed references to OpenAI's proprietary Apps & Connectors registry
+  (the `.app.json` file and any "GitHub app from this plugin" / "connector"
+  language in skill instructions).
+- Rewrote every "use the GitHub app from this plugin" instruction to use
+  the `gh` CLI via Claude Code's Bash tool, since Claude Code has no
+  connector-registry analog today.
+- Dropped Codex-specific runtime metadata (`agents/openai.yaml` files) that
+  do not apply to Claude Code.
+- Moved plugin metadata from `.codex-plugin/plugin.json` to
+  `.claude-plugin/plugin.json` and updated fields for Claude Code's plugin
+  format.
+
+The Python helper scripts under `skills/gh-fix-ci/scripts/` and
+`skills/gh-address-comments/scripts/` are included unchanged and carry the
+same Apache License 2.0 terms.
+
+A full copy of the Apache License 2.0 is included as the LICENSE file at
+the root of this plugin directory.
