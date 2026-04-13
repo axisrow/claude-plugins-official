@@ -12,6 +12,17 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/check-gh-auth.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }
