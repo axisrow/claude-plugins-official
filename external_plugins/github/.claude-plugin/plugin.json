@@ -1,6 +1,6 @@
 {
   "name": "github",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GitHub workflows via the gh CLI: triage PRs and issues, debug failing CI checks, address review comments, and publish changes. Skills-based, no remote MCP server required.",
   "author": {
     "name": "GitHub"
