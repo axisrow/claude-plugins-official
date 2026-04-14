@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# SessionStart hook: проверяет gh auth status и предупреждает если сломан.
+# SessionStart hook: предупреждает только при x509/OSStatus ошибках keychain,
+# чтобы сетевые сбои (оффлайн, downtime GitHub) не давали false-positive.
 
-if ! gh auth status >/dev/null 2>&1; then
+err=$(gh auth status 2>&1 >/dev/null) || true
+if [[ "$err" == *x509* || "$err" == *OSStatus* ]]; then
   echo '{"systemMessage": "⚠️  gh auth broken. Run: ! gh auth login -h github.com"}'
 fi
 exit 0
