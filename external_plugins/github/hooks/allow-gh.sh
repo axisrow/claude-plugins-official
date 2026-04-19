@@ -22,19 +22,19 @@ fi
 
 # Allow gh CLI commands
 if echo "$COMMAND" | grep -qE '^\s*(gh )|^\s*(gh$)'; then
-  echo '{"hookSpecificOutput":{"permissionDecision":"allow","permissionDecisionReason":"GitHub plugin: gh CLI command auto-allowed"}}'
+  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"allow","permissionDecisionReason":"GitHub plugin: gh CLI command auto-allowed"}}'
   exit 0
 fi
 
 # Allow git commands (needed for branch/commit/push operations)
 if echo "$COMMAND" | grep -qE '^\s*(git )'; then
-  echo '{"hookSpecificOutput":{"permissionDecision":"allow","permissionDecisionReason":"GitHub plugin: git command auto-allowed"}}'
+  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"allow","permissionDecisionReason":"GitHub plugin: git command auto-allowed"}}'
   exit 0
 fi
 
 # Allow bundled Python helper scripts
 if echo "$COMMAND" | grep -qE 'python3?\s+.*/(inspect_pr_checks|fetch_comments)\.py'; then
-  echo '{"hookSpecificOutput":{"permissionDecision":"allow","permissionDecisionReason":"GitHub plugin: bundled helper script auto-allowed"}}'
+  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"allow","permissionDecisionReason":"GitHub plugin: bundled helper script auto-allowed"}}'
   exit 0
 fi
 
